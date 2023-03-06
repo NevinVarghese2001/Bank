@@ -10,8 +10,8 @@ export class LoginComponent {
   data="your perfect banking partner"
   data1="enter account no."
 
-  acno:any 
-  psw: any
+  // acno:any 
+  // psw: any
       userDetails:any={
         1000:{username:"anu",acno:1000,password:"abc123",balance:0},
         1001:{username:"amal",acno:1001,password:"abc123",balance:0},
@@ -19,9 +19,21 @@ export class LoginComponent {
         1003:{username:"mega",acno:1003,password:"abc123",balance:0}
       }
 
-      login(){
-        var acnum=this.acno
-        var psw=this.psw
+      
+
+      // acnoChange(event:any){
+      //   this.acno=event.target.value
+      // }
+
+      // pswChange(event:any){
+      //    this.psw=event.target.value
+         
+          
+      // }
+
+      login(acno:any,psw:any){
+        var acnum=acno.value
+        var psw=psw.value
         var userDetails=this.userDetails
 
         if(acnum in userDetails){
@@ -33,15 +45,5 @@ export class LoginComponent {
         }else{
           alert("unregistered account number")
         }
-      }
-
-      acnoChange(event:any){
-        this.acno=event.target.value
-      }
-
-      pswChange(event:any){
-         this.psw=event.target.value
-         
-          
       }
 }
