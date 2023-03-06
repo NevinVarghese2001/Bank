@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-image:url(./assets/pexels-photo-164501.webp);
+    background-size: cover;
+    
+}
+
+H1{
+    color: rgb(23, 40, 46);
+    text-align: center;
+}
+footer{
+   bottom: 0;
+   position: fixed;
+   width: 100%;
+   /* opacity: 0.7; */
+}
+header{
+    /* opacity: 0.7; */
+}

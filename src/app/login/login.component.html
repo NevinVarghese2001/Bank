@@ -1,0 +1,14 @@
+<!-- <div class=" p-2 ms-4">
+    <h2> {{data}} </h2>
+</div> -->
+
+<div class="container align-center p-5 mt-5">
+    <p>Login</p>
+<form class="form">
+    <label>Email</label>
+    <input type="text" (change)="acnoChange($event)" class="input" name="uname" id="u1" [placeholder]="data1">
+    <label>Password</label>
+    <input type="password" (change)="pswChange($event)" name="password" id="p1" class="input" placeholder="Password"> 
+    <button (click)="login()" type="button">Submit</button>
+</form>
+</div>
