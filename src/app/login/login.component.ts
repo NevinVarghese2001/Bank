@@ -10,8 +10,8 @@ export class LoginComponent {
   data="your perfect banking partner"
   data1="enter account no."
 
-  // acno:any 
-  // psw: any
+  acno:any 
+  psw: any
       userDetails:any={
         1000:{username:"anu",acno:1000,password:"abc123",balance:0},
         1001:{username:"amal",acno:1001,password:"abc123",balance:0},
@@ -31,9 +31,9 @@ export class LoginComponent {
           
       // }
 
-      login(acno:any,psw:any){
-        var acnum=acno.value
-        var psw=psw.value
+      login(){
+        var acnum=this.acno
+        var psw=this.psw
         var userDetails=this.userDetails
 
         if(acnum in userDetails){

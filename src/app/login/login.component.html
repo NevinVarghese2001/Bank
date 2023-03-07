@@ -5,10 +5,10 @@
 <div class="container align-center p-5 mt-5">
     <p>Login</p>
 <form class="form">
-    <label>Email</label>
-    <input type="text" #acno class="input" name="uname" id="u1" [placeholder]="data1">
+    <label>Account No.</label>
+    <input type="text" [(ngModel)]="acno" class="input" name="uname" id="u1" [placeholder]="data1">
     <label>Password</label>
-    <input type="password" #psw name="password" id="p1" class="input" placeholder="Password"> 
-    <button (click)="login(acno,psw)" type="button">Submit</button>
+    <input type="password" [(ngModel)]="psw" name="password" id="p1" class="input" placeholder="Password"> 
+    <button (click)="login()" type="button">Submit</button>
 </form>
 </div>
