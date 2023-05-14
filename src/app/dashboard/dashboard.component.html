@@ -1,0 +1,84 @@
+<p [ngClass]="acno?'s1':''" class="h1 text-center Welcome  mt-2 mb-3">Welcome {{user}}</p>
+<p class="datee">{{sD | date:"medium"}}</p>
+<button class="btn btn-primary logout" (click)="logout()" type="submit" >logout</button>
+
+<button class="btn btn-danger  delete" (click)="deleteAcc()" type="" >Delete</button>
+<app-delete (onDelete)="ondeleteAcc($event)" (onCancel)="cancelChild()" [item]="acno"></app-delete>
+
+<div [ngClass]="acno?'s1':''">
+    <div class="left">
+        <div class="container">
+            <div class="card">
+                <form action="" [formGroup]="depositForm">
+                <a class="Deposite">Deposite</a>
+                <div class="inputBox1">
+                    <input type="text" formControlName="acno" id="ac1" name="acno" required="required">
+                    <span class="user">Account No.</span>
+                </div>
+                <div *ngIf="this.depositForm.get('acno')?.errors &&this.depositForm.get('acno')?.touched">
+                    <p class=" text-danger text-start ms-2">include numbers only</p>
+                </div>
+    
+                <div class="inputBox">
+                    <input type="password" formControlName="psw"  id="p1" name="psw" required="required">
+                    <span>Password</span>
+                </div>
+                <div *ngIf="this.depositForm.get('psw')?.errors &&this.depositForm.get('psw')?.touched">
+                    <p class=" text-danger text-start ms-2">include numbers and characters</p>
+                </div>
+    
+                <div class="inputBox">
+                    <input type="text" formControlName="amnt" name="amnt" id="a1" required="required">
+                    <span>Amount</span>
+                </div>
+                <div *ngIf="this.depositForm.get('amnt')?.errors &&this.depositForm.get('amnt')?.touched">
+                    <p class=" text-danger text-start ms-2">include numbers only</p>
+                </div>
+    
+                <button (click)="deposit()" class="enter">Enter</button>
+            </form>
+    
+            </div>
+        </div>
+    </div>
+
+    <div class="right col-md-5">
+        <div class="container">
+            <div class="card2">
+                <form action="" [formGroup]="withdrawForm">
+                <a class="Withdraw">Withdraw</a>
+                <div class="inputBox1">
+                    <input type="text" formControlName="acno1"  required="required">
+                    <span class="user">Account No.</span>
+                </div>
+                <div *ngIf="this.withdrawForm.get('acno1')?.errors &&this.withdrawForm.get('acno1')?.touched">
+                    <p class=" text-danger text-start ms-2">include numbers only</p>
+                </div>
+    
+                <div class="inputBox">
+                    <input type="password" formControlName="psw1"  required="required">
+                    <span>Password</span>
+                </div>
+                <div *ngIf="this.withdrawForm.get('psw1')?.errors &&this.withdrawForm.get('psw1')?.touched">
+                    <p class=" text-danger text-start ms-2">include numbers and characters</p>
+                </div>
+                
+
+    
+                <div class="inputBox">
+                    <input type="text" formControlName="amnt1" required="required">
+                    <span>Amount</span>
+                </div>
+                <div *ngIf="this.withdrawForm.get('amnt1')?.errors &&this.withdrawForm.get('amnt1')?.touched">
+                    <p class=" text-danger text-start ms-2">include numbers only</p>
+                </div>
+    
+                <button (click)="withdraw()" class="enter">Enter</button>
+            </form>
+            </div>
+        </div>
+    </div>
+    <a routerLink="/transaction" class="History p-3">Transaction History</a>
+    
+</div>
+

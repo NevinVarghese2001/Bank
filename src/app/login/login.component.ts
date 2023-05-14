@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-login',
@@ -10,17 +13,15 @@ export class LoginComponent {
   data="your perfect banking partner"
   data1="enter account no."
 
-  acno:any 
-  psw: any
-      userDetails:any={
-        1000:{username:"anu",acno:1000,password:"abc123",balance:0},
-        1001:{username:"amal",acno:1001,password:"abc123",balance:0},
-        1002:{username:"arun",acno:1002,password:"abc123",balance:0},
-        1003:{username:"mega",acno:1003,password:"abc123",balance:0}
-      }
-
+  
+    
+     
+      constructor(private router:Router,private ds:DataService,private fb:FormBuilder){}
       
-
+      loginForm=this.fb.group({
+        acno:['',[Validators.required,Validators.pattern('[0-9]+')]],
+        psw:['',[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]]
+      })
       // acnoChange(event:any){
       //   this.acno=event.target.value
       // }
@@ -32,18 +33,25 @@ export class LoginComponent {
       // }
 
       login(){
-        var acnum=this.acno
-        var psw=this.psw
-        var userDetails=this.userDetails
+        var acnum=this.loginForm.value.acno
+        var psw=this.loginForm.value.psw
+        if(this.loginForm.valid){
+          this.ds.login(acnum,psw).subscribe((result:any)=>{
+            localStorage.setItem("currentUser",result.currentUser)
+            localStorage.setItem("currentAcno",JSON.stringify(result.currentAcno))
+            localStorage.setItem("token",JSON.stringify(result.token))
 
-        if(acnum in userDetails){
-           if(psw==userDetails[acnum]["password"]){
-              alert("login success")
-           }else{
-            alert("incorrect password")
-           }
-        }else{
-          alert("unregistered account number")
+            alert(result.message)
+            this.router.navigateByUrl('dashboard')
+          },
+          result=>{
+            alert(result.error.message)
+          
+          })
+
         }
-      }
+        else{
+          alert("invalid form")
+        }
+}
 }

@@ -91,3 +91,145 @@ html - view
   2.1 ngModel [(ngModel)]="variable"
       
       -FormModule -module used to apply ngModel
+
+
+Path setting in Angular
+-----------------------
+   path set in root module routing file
+   each file need different paths 
+   landimg page path is ""(empty)
+
+Redirection in Angular
+----------------------
+   method - navigateByUrl(path)
+   class  - Router
+   module - AppRoutingModule
+
+
+   folder - file -class -method 
+   package  module
+
+
+Dependency Injection
+--------------------
+to use a method of class in another class
+ 
+in constructor   
+
+            accessSpecifier referance:ClassName
+            
+            access specifier - private/ public
+             -private :can use only in the injected class
+             -public  :can use in the injected class and other classes in the file 
+
+
+Angular Services
+----------------
+
+its a file in angular 
+all components can access the content of the Service file
+
+-create  ng g s filename
+
+
+Angular Dierectives
+-------------------
+used to manipulate DOM
+
+1-component Dierectives
+
+2-Structural Dierectives
+      -*ngFor
+      -*ngIf
+      
+3-Atribute Dierectives
+      -[ngClass]
+
+
+
+
+Form Validation In Angular
+--------------------------
+
+form creation in angular
+     1-template driven form
+     2-model driven form
+
+Model Driven Form
+-----------------
+
+-reactive form
+      -ReactiveFormsModule  -module used to build model form
+
+      -a model contain -form group
+                       -array
+                       -controller
+
+
+
+local storage in angular
+------------------------
+C-CREATE-  localStorage.setItem()
+R-READ-    localStorage.getItem()
+U-UPDATE-  localStorage.setItem()
+D-DELETE-  localStorage.removeItem()
+
+
+
+Child parent Communication in Angular
+-------------------------------------
+parent to child data sharing-
+                         @Input()-decorator used to share data from parent to child
+                          
+child to parent data sharing-
+                         @Output()-decorator used to share data from child to parent
+
+date and time in Angular
+------------------------
+date - class used to access current date in Angular
+
+Angular Pipes
+-------------
+used to convert datas to another formate
+
+Event creation in Angular (user defined events)
+-------------------------
+EventEmitter- class used to create events
+
+emit() -method used to specify when the event happens
+
+
+
+API creation In angular
+-----------------------
+HttpClientModule  -module
+HttpClient        -class
+
+methods
+-------
+get post put patch delete
+
+-----------------------------------
+asynchronous in js 
+
+        promise - then()
+                - catch()
+
+asynchronous in ts        rxjs(reactive extension for javascript)
+  
+        observable - subscribe()
+                   - catch()
+----------------------------------
+
+Header creation in Angular
+--------------------------
+
+HttpHeaders - class used to generate Heades 
+
+
+
+
+
+
+
+

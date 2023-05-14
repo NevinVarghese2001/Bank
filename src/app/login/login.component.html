@@ -1,14 +1,25 @@
 <!-- <div class=" p-2 ms-4">
     <h2> {{data}} </h2>
-</div> -->
+</div> 
 
 <div class="container align-center p-5 mt-5">
     <p>Login</p>
-<form class="form">
+<form [formGroup]="loginForm" class="form" (ngSubmit)="login()">
     <label>Account No.</label>
-    <input type="text" [(ngModel)]="acno" class="input" name="uname" id="u1" [placeholder]="data1">
+    <input formControlName="acno" type="text"  class="input" name="acno" id="u1" [placeholder]="data1">
+    
+        <div *ngIf="this.loginForm.get('acno')?.errors &&this.loginForm.get('acno')?.touched">
+            <p class=" text-danger text-start ms-2">include numbers only</p>
+        </div>
+    
     <label>Password</label>
-    <input type="password" [(ngModel)]="psw" name="password" id="p1" class="input" placeholder="Password"> 
-    <button (click)="login()" type="button">Submit</button>
+    <input formControlName="psw" type="password"  name="password" id="p1" class="input" placeholder="Password"> 
+    <div *ngIf="this.loginForm.get('psw')?.errors &&this.loginForm.get('psw')?.touched">
+        <p class=" text-danger text-start ms-2">include numbers and characters</p>
+    </div>
+
+    <button (click)="login()" type="submit">Submit</button>
 </form>
+
 </div>
+<p class="text-center mt-2 ">dont have account? <a routerLink="register">create account</a></p>

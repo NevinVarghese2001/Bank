@@ -1,0 +1,23 @@
+<div class="container align-center p-5 mt-5">
+    <p>Sign up</p>
+<form [formGroup]="registerForm" class="form" (ngSubmit)="register()">
+   
+    <input type="text" formControlName="acno" class="input " name="acno" id="ra1" placeholder="Account number">
+    <div *ngIf="this.registerForm.get('acno')?.errors &&this.registerForm.get('acno')?.touched">
+        <p class=" text-danger text-start ms-2">include numbers only</p>
+    </div>
+
+    <input type="text"  formControlName="uname"  class="input" name="uname" id="ru1" placeholder="User name">
+    <div *ngIf="this.registerForm.get('uname')?.errors &&this.registerForm.get('uname')?.touched">
+        <p class=" text-danger text-start ms-2">include characters only</p>
+    </div>
+
+    <input type="password" formControlName="psw"  name="password" id="rp1" class="input" placeholder="Password"> 
+    <div *ngIf="this.registerForm.get('psw')?.errors &&this.registerForm.get('psw')?.touched">
+        <p class=" text-danger text-start ms-2">include numbers and characters</p>
+    </div>
+
+    <button   type="submit">Submit</button>
+</form>
+
+</div>
